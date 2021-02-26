@@ -1,10 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-import './NavBar.css'
+import "./NavBar.css";
 
 const NavBar = ({ user, handleLogout }) => {
-  let nav = user ? 
+  let nav = user ? (
     <>
       <nav className="nav-bar">
         <div className="nav-wrapper">
@@ -13,13 +13,15 @@ const NavBar = ({ user, handleLogout }) => {
               <Link to={`/user/${user._id}`}>Welcome, {user.name}</Link>
             </li>
             <li>
-              <Link to=" " onClick={handleLogout}>Log Out</Link>
+              <Link to=" " onClick={handleLogout}>
+                Log Out
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
     </>
-    :
+  ) : (
     <>
       <nav className="nav-bar">
         <div className="nav-wrapper">
@@ -34,10 +36,9 @@ const NavBar = ({ user, handleLogout }) => {
         </div>
       </nav>
     </>
-
-  return (
-    nav
   );
+
+  return nav;
 };
 
 export default NavBar;
