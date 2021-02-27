@@ -7,7 +7,6 @@ const port = process.env.PORT || 3001;
 require("dotenv").config();
 require("./config/database");
 
-const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
 const animeRouter = require("./routes/anime");
@@ -21,6 +20,9 @@ app.use(logger("dev"));
 app.use(express.json());
 
 app.use("/api/auth", authRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/anime", animeRouter);
+app.use("/api/manga", mangaRouter);
 
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
