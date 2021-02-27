@@ -6,10 +6,3 @@ body {
   background-color: rgb(57, 95, 110);
 }
 
-.nav {
-  width: 100%;
-  justify-content: center;
-}
-.nav-wrapper {
-  background-color: darkgray;
-}

@@ -6,7 +6,7 @@ import "./NavBar.css";
 const NavBar = ({ user, handleLogout }) => {
   let nav = user ? (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="/">
           <b>AniApp</b>
         </a>
@@ -23,7 +23,7 @@ const NavBar = ({ user, handleLogout }) => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="#">
                 Home
               </a>
@@ -62,34 +62,69 @@ const NavBar = ({ user, handleLogout }) => {
                 </a>
               </div>
             </li>
-          </ul>
-        </div>
-      </nav>
-      <nav className="nav-bar">
-        <div className="nav-wrapper">
-          <ul className="right">
-            <li>
-              <Link to={`/user/${user._id}`}>Welcome, {user.name}</Link>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Manga
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="/anime">
+                  Manga List
+                </a>
+                <a class="dropdown-item" href="#">
+                  Add Manga
+                </a>
+              </div>
             </li>
-            <li>
-              <Link to=" " onClick={handleLogout}>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onClick={handleLogout}>
                 Log Out
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
       </nav>
+
+      
     </>
   ) : (
     <>
-      <nav className="nav-bar">
-        <div className="nav-wrapper">
-          <ul className="right">
-            <li>
-              <Link to="/login">Log In</Link>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="/">
+          <b>AniApp</b>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+                Profile
+              </a>
             </li>
-            <li>
-              <Link to="/signup">Sign Up</Link>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">
+                Sign Up
+              </a>
             </li>
           </ul>
         </div>
