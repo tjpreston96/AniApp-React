@@ -1,85 +1,75 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import userService from "../../services/userService"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import userService from "../../services/userService";
 
 const LoginForm = ({ history, handleSignupOrLogin, updateMessage }) => {
-    const [loginInfo, setLoginInfo] = useState({
-        email: "",
-        password: "",
-    })
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
 
-    const handleChange = (e) => {
-        updateMessage("")
-        setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value })
+  const handleChange = (e) => {
+    updateMessage("");
+    setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await userService.login(loginInfo);
+      handleSignupOrLogin();
+      history.push("/");
+    } catch (err) {
+      updateMessage(err.message);
     }
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        try {
-            await userService.login(loginInfo)
-            handleSignupOrLogin()
-            history.push("/")
-        } catch (err) {
-            updateMessage(err.message)
-        }
-    }
-
-    return (
-        <div>
-            <h3>Log In</h3>
-            <form
-                className="col s12"
-                autoComplete="off"
-                onSubmit={handleSubmit}
-            >
-                <div className="row">
-                    <div className="input-field col s12">
-                        <input
-                            type="text"
-                            autoComplete="off"
-                            id="email"
-                            className="active"
-                            value={loginInfo.email}
-                            name="email"
-                            onChange={handleChange}
-                        />
-                        <label htmlFor="email">Email</label>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="input-field col s12">
-                        <input
-                            type="password"
-                            autoComplete="off"
-                            className="active"
-                            id="password"
-                            value={loginInfo.password}
-                            name="password"
-                            onChange={handleChange}
-                        />
-                        <label htmlFor="password">Password</label>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col s12">
-                        <button className="btn green">
-                            Log In
-                            <i className="material-icons right">
-                                arrow_forward
-                            </i>
-                        </button>
-                        &nbsp;&nbsp;&nbsp;
-                        <Link className="btn red" to="/">
-                            Cancel<i className="material-icons right">cancel</i>
-                        </Link>
-                    </div>
-                </div>
-            </form>
-            <div className="row">
-                <Link to="/forgot">Forgot Password</Link>
-            </div>
+  return (
+    <div>
+      <h3>Log In</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          className="form-control"
+          value={loginInfo.email}
+          name="email"
+          aria-describedby="emailHelp"
+          onChange={handleChange}
+        />
+        <small id="emailHelp" class="form-text text-muted">
+          We'll never share your email with anyone else.
+        </small>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            autoComplete="off"
+            className="form-control"
+            id="password"
+            value={loginInfo.password}
+            name="password"
+            onChange={handleChange}
+          />
         </div>
-    )
-}
+        <button
+          className="btn"
+          type="submit"
+          style={{ backgroundColor: "#E7D981" }}
+        >
+          Log In
+          <i class="bi bi-box-arrow-in-right"></i>
+        </button>
+        &nbsp;&nbsp;&nbsp;
+        <Link className="btn " style={{ backgroundColor: "#DA7B93" }} to="/">
+          Cancel <i class="bi bi-x-circle-fill"></i>
+        </Link>
+      </form>
 
-export default LoginForm
+      <Link to="/forgot" style={{color: "#DFDFDF"}}>Forgot Password <i class="bi bi-question-circle"></i></Link>
+    </div>
+  );
+};
+
+export default LoginForm;
