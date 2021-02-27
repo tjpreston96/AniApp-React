@@ -40,7 +40,7 @@ const App = () => {
         path="/"
         render={({ history }) => (
           <>
-            <h2>Welcome to AniApp</h2>
+            <h1>Welcome to AniApp</h1>
             <Clock />
           </>
         )}
