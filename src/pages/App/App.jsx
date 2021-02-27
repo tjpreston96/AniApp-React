@@ -10,6 +10,7 @@ import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
 
 import userService from "../../services/userService";
 import tokenService from "../../services/tokenService";
+import Home from "../../components/Home/Home";
 import Clock from "../../components/Clock/Clock";
 import "./App.css";
 
@@ -40,8 +41,7 @@ const App = () => {
         path="/"
         render={({ history }) => (
           <>
-            <h1>Welcome to AniApp</h1>
-            <Clock />
+            <Home />
           </>
         )}
       ></Route>
