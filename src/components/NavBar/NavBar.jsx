@@ -22,7 +22,6 @@ const NavBar = ({ user, handleLogout }) => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -36,7 +35,7 @@ const NavBar = ({ user, handleLogout }) => {
                 Anime
               </a>
               <div
-                class="dropdown-menu"
+                class="dropdown-menu bg-dark "
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <a class="dropdown-item" href="/anime">
@@ -60,7 +59,7 @@ const NavBar = ({ user, handleLogout }) => {
                 Manga
               </a>
               <div
-                class="dropdown-menu"
+                class="dropdown-menu bg-dark"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <a class="dropdown-item" href="/anime">
@@ -89,8 +88,6 @@ const NavBar = ({ user, handleLogout }) => {
           </ul>
         </div>
       </nav>
-
-      
     </>
   ) : (
     <>

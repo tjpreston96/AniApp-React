@@ -14,3 +14,12 @@ body {
 .gold {
   background-color: #e7d981;
 }
+
+h2 {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#emailHelp{
+  color: #e7d981 !important;
+}

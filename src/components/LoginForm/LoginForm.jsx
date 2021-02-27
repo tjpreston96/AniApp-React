@@ -28,6 +28,8 @@ const LoginForm = ({ history, handleSignupOrLogin, updateMessage }) => {
     <div>
       <h3>Log In</h3>
       <form onSubmit={handleSubmit}>
+          <div className="form-group">
+
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -39,8 +41,9 @@ const LoginForm = ({ history, handleSignupOrLogin, updateMessage }) => {
           onChange={handleChange}
         />
         <small id="emailHelp" class="form-text text-muted">
-          We'll never share your email with anyone else.
+          Please <em>DON'T</em> share your email or password with others.
         </small>
+          </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input

@@ -34,7 +34,11 @@ const App = () => {
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
-      
+      <Route
+        exact
+        path="/"
+        render={({ history }) => <h2>Welcome to AniApp</h2>}
+      ></Route>
       <Switch>
         <Route
           exact
