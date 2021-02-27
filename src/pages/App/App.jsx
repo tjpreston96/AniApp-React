@@ -10,6 +10,7 @@ import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
 
 import userService from "../../services/userService";
 import tokenService from "../../services/tokenService";
+import Clock from "../../components/Clock/Clock";
 import "./App.css";
 
 const App = () => {
@@ -37,7 +38,12 @@ const App = () => {
       <Route
         exact
         path="/"
-        render={({ history }) => <h2>Welcome to AniApp</h2>}
+        render={({ history }) => (
+          <>
+            <h2>Welcome to AniApp</h2>
+            <Clock />
+          </>
+        )}
       ></Route>
       <Switch>
         <Route
