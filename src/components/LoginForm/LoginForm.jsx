@@ -53,21 +53,19 @@ const LoginForm = ({ history, handleSignupOrLogin, updateMessage }) => {
             onChange={handleChange}
           />
         </div>
-        <button
-          className="btn"
-          type="submit"
-          style={{ backgroundColor: "#E7D981" }}
-        >
+        <button className="btn gold" type="submit">
           Log In
           <i class="bi bi-box-arrow-in-right"></i>
         </button>
         &nbsp;&nbsp;&nbsp;
-        <Link className="btn " style={{ backgroundColor: "#DA7B93" }} to="/">
+        <Link className="btn violet" to="/">
           Cancel <i class="bi bi-x-circle-fill"></i>
         </Link>
       </form>
 
-      <Link to="/forgot" style={{color: "#DFDFDF"}}>Forgot Password <i class="bi bi-question-circle"></i></Link>
+      <Link to="/forgot" style={{ color: "#DFDFDF" }}>
+        Forgot Password <i class="bi bi-question-circle"></i>
+      </Link>
     </div>
   );
 };
