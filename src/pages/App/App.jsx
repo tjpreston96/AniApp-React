@@ -11,7 +11,7 @@ import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
 import userService from "../../services/userService";
 import tokenService from "../../services/tokenService";
 import Home from "../../components/Home/Home";
-import Clock from "../../components/Clock/Clock";
+import SearchBar from "../../components/SearchBar/SearchBar"
 import "./App.css";
 
 const App = () => {
@@ -39,6 +39,42 @@ const App = () => {
       <Route
         exact
         path="/"
+        render={({ history }) => (
+          <>
+            <Home />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/anime"
+        render={({ history }) => (
+          <>
+            <Home />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/anime/new"
+        render={({ history }) => (
+          <>
+            <SearchBar />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/manga"
+        render={({ history }) => (
+          <>
+            <Home />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/manga/new"
         render={({ history }) => (
           <>
             <Home />
