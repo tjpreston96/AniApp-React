@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 import "./NavBar.css";
 
@@ -6,9 +7,9 @@ const NavBar = ({ user, handleLogout }) => {
   let nav = user ? (
     <>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="/">
+        <Link class="navbar-brand" to="/">
           <b>AniApp</b>
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -23,9 +24,9 @@ const NavBar = ({ user, handleLogout }) => {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a
+              <Link
                 class="nav-link dropdown-toggle"
-                href="#"
+                to="#"
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-toggle="dropdown"
@@ -33,23 +34,23 @@ const NavBar = ({ user, handleLogout }) => {
                 aria-expanded="false"
               >
                 Anime
-              </a>
+              </Link>
               <div
                 class="dropdown-menu bg-dark "
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="/anime">
+                <Link class="dropdown-item" to="/anime">
                   Anime List
-                </a>
-                <a class="dropdown-item" href="#">
+                </Link>
+                <Link class="dropdown-item" to="/anime/search">
                   Add Anime
-                </a>
+                </Link>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a
+              <Link
                 class="nav-link dropdown-toggle"
-                href="#"
+                to="#"
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-toggle="dropdown"
@@ -57,34 +58,34 @@ const NavBar = ({ user, handleLogout }) => {
                 aria-expanded="false"
               >
                 Manga
-              </a>
+              </Link>
               <div
                 class="dropdown-menu bg-dark"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="/anime">
+                <Link class="dropdown-item" to="/Linknime">
                   Manga List
-                </a>
-                <a class="dropdown-item" href="#">
+                </Link>
+                <Link class="dropdown-item" to="/manga/search">
                   Add Manga
-                </a>
+                </Link>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="#">
                 Profile
-              </a>
+              </Link>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="#">
                 Users
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onClick={handleLogout}>
+              <Link class="nav-link" to="#" onClick={handleLogout}>
                 Log Out
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -93,9 +94,9 @@ const NavBar = ({ user, handleLogout }) => {
   ) : (
     <>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="/">
+        <Link class="navbar-brand" to="/">
           <b>AniApp</b>
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -110,14 +111,14 @@ const NavBar = ({ user, handleLogout }) => {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/login">
+              <Link class="nav-link" to="/login">
                 Log In
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/signup">
+              <Link class="nav-link" to="/signup">
                 Sign Up
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

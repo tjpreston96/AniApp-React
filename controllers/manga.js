@@ -10,7 +10,7 @@ module.exports = {
 
 function search(req, res) {
   axios
-    .get(`https://kitsu.io/api/edge//manga?filter[text]=${req.body.query}`)
+    .get(`https://kitsu.io/api/edge//manga?filter[text]=${req.body.term}`)
     .then((response) => {
       res.json(response.data.data);
     });

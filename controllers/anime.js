@@ -1,6 +1,5 @@
 const Anime = require("../models/anime");
 const axios = require("axios");
-const user = require("../models/user");
 
 module.exports = {
   search,
@@ -12,7 +11,7 @@ module.exports = {
 
 function search(req, res) {
   axios
-    .get(`https://kitsu.io/api/edge//anime?filter[text]=${req.body.query}`)
+    .get(`https://kitsu.io/api/edge//anime?filter[text]=${req.body.term}`)
     .then((response) => {
       console.log(response.data.data);
       res.json(response.data.data);

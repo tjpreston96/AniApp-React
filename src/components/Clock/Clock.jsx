@@ -11,7 +11,7 @@ const Clock = () => {
   });
   return (
     <div className="time" style={{ textAlign: "center" }}>
-      <h3>Today's date is: <br/>{date} <br/>{time}</h3>
+      <h3>Today's Date: <br/>{date} <br/>{time}</h3>
     </div>
   );
 };
