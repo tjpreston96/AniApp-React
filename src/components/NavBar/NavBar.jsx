@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "./NavBar.css";
 
@@ -23,11 +22,7 @@ const NavBar = ({ user, handleLogout }) => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Home
-              </a>
-            </li>
+            
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"

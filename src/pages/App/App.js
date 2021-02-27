@@ -34,7 +34,7 @@ const App = () => {
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
-
+      
       <Switch>
         <Route
           exact
