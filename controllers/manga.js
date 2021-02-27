@@ -1,7 +1,6 @@
 const Manga = require("../models/manga");
 const axios = require("axios");
 module.exports = {
-  new: newManga,
   search,
   show,
   index,
@@ -9,25 +8,14 @@ module.exports = {
   removeFromCollection,
 };
 
-function newManga(req, res) {
-  res.render("manga/new", {
-    title: "Manga Search",
-    user: req.user,
-    results: [],
-  });
-}
-
 function search(req, res) {
   axios
     .get(`https://kitsu.io/api/edge//manga?filter[text]=${req.body.query}`)
     .then((response) => {
-      res.render("manga/new", {
-        title: "Manga Search",
-        user: req.user,
-        results: response.data.data,
-      });
+      res.json(response.data.data);
     });
 }
+
 function index(req, res) {
   Manga.find({ favoritedBy: req.user._id }).then((manga) => {
     res.render("manga/index", {

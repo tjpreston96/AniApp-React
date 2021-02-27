@@ -2,7 +2,7 @@ const router = require("express").Router();
 const mangaCtrl = require("../controllers/manga");
 
 router.use(require("../config/auth"));
-router.get("/new", isLoggedIn, mangaCtrl.new);
+
 router.get("/", isLoggedIn, mangaCtrl.index);
 router.post("/search", isLoggedIn, mangaCtrl.search);
 router.get("/:slug", isLoggedIn, mangaCtrl.show);

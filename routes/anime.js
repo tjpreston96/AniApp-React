@@ -2,7 +2,6 @@ const router = require("express").Router();
 const animeCtrl = require("../controllers/anime");
 
 router.use(require("../config/auth"));
-router.get("/new", isLoggedIn, animeCtrl.new);
 router.get("/", isLoggedIn, animeCtrl.index);
 router.post("/search", isLoggedIn, animeCtrl.search);
 router.get("/:slug", isLoggedIn, animeCtrl.show);
