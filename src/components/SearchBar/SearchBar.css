@@ -1,0 +1,9 @@
+.searchBox{
+    display: flex;
+    justify-content: center;
+}
+
+.search{
+    margin: 1rem;
+    width: 80%;
+}

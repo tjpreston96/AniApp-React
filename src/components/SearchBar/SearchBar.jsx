@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({category}) => {
+  const [term, setTerm] = useState("");
+
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+
+    onSubmit(term);
+  };
   return (
     <>
-      <form action="/anime/search" method="POST" class="search">
-        <div class="form-row">
-          <div class="col-md-12">
+      <h2>Search {category} Titles</h2>
+      <div className="searchBox">
+        <form onSubmit={onSubmit} className="search">
+          <div class="input-group mb-3">
             <input
               type="text"
               class="form-control"
-              name="query"
-              placeholder="Search for anime..."
+              value={term}
+              onChange={(evt) => setTerm(evt.target.value)}
+              placeholder='Title Search...'
+              aria-label="Title Search"
+              aria-describedby="button-addon2"
             />
+            <div class="input-group-append">
+              <button class="btn gold" type="button" id="button-addon2">
+                Search <i class="bi bi-search"></i>
+              </button>
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn" >
-          Search
-        </button>
-      </form>
+        </form>
+      </div>
     </>
   );
 };

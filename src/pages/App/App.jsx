@@ -59,7 +59,7 @@ const App = () => {
         path="/anime/new"
         render={({ history }) => (
           <>
-            <SearchBar />
+            <SearchBar category='Anime'/>
           </>
         )}
       ></Route>

@@ -75,6 +75,7 @@ const NavBar = ({ user, handleLogout }) => {
                 Profile
               </a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="#">
                 Users
