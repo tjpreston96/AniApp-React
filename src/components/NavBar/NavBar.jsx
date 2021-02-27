@@ -28,16 +28,6 @@ const NavBar = ({ user, handleLogout }) => {
                 Home
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Profile
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Users
-              </a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -87,6 +77,16 @@ const NavBar = ({ user, handleLogout }) => {
               </div>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#">
+                Profile
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Users
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#" onClick={handleLogout}>
                 Log Out
               </a>
@@ -118,7 +118,7 @@ const NavBar = ({ user, handleLogout }) => {
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="/login">
-                Profile
+                Log In
               </a>
             </li>
             <li class="nav-item">
