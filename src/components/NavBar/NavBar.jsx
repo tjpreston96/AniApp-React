@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import "./NavBar.css";
 
@@ -76,7 +76,7 @@ const NavBar = ({ user, handleLogout }) => {
                 Profile
               </Link>
             </li>
-            
+
             <li class="nav-item">
               <Link class="nav-link" to="#">
                 Users
