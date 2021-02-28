@@ -19,6 +19,7 @@ import "./App.css";
 const App = () => {
   const [user, setUser] = useState("");
   const [results, setResults] = useState([]);
+  const [indResult, setIndResult] = useState([])
   useEffect(() => {
     setUser(tokenService.getUserFromToken());
   }, []);
@@ -63,7 +64,7 @@ const App = () => {
         render={({ history }) => (
           <>
             <SearchBar setResults={setResults} />
-            <ResultsList results={results} setResults={setResults} />
+            <ResultsList results={results} setResults={setResults} setIndResult={setIndResult}/>
           </>
         )}
       ></Route>

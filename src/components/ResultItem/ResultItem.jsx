@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import './ResultItem.css'
+import { Link, useParams } from "react-router-dom";
+import "./ResultItem.css";
 
-const ResultItem = ({ result }) => {
+const ResultItem = ({ result, setIndResult }) => {
+  const { category } = useParams();
   return (
-    <Link className="card resultListCard" >
-        <img src={result.attributes.posterImage.large} className='card-img-top' alt="resultImg"/>
+    <Link to={`/${category}/${result.attributes.slug}`} className="card resultListCard" onClick={() => setIndResult(result)}>
+      <img
+        src={result.attributes.posterImage.large}
+        className="card-img-top"
+        alt="resultImg"
+      />
       <h5 className="card-title">{result.attributes.canonicalTitle}</h5>
     </Link>
   );

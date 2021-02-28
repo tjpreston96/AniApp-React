@@ -36,7 +36,7 @@ const NavBar = ({ user, handleLogout }) => {
                 Anime
               </Link>
               <div
-                class="dropdown-menu bg-dark "
+                class="dropdown-menu bg-dark"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <Link class="dropdown-item" to="/anime">
@@ -63,7 +63,7 @@ const NavBar = ({ user, handleLogout }) => {
                 class="dropdown-menu bg-dark"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <Link class="dropdown-item" to="/Linknime">
+                <Link class="dropdown-item" to="/manga">
                   Manga List
                 </Link>
                 <Link class="dropdown-item" to="/manga/search">
