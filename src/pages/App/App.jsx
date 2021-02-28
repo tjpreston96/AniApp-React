@@ -13,13 +13,14 @@ import NavBar from "../../components/NavBar/NavBar";
 import Home from "../../components/Home/Home";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ResultsList from "../../components/ResultsList/ResultsList";
+import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
 // CSS
 import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState("");
   const [results, setResults] = useState([]);
-  const [indResult, setIndResult] = useState([])
+  const [indResult, setIndResult] = useState([]);
   useEffect(() => {
     setUser(tokenService.getUserFromToken());
   }, []);
@@ -49,6 +50,7 @@ const App = () => {
           </>
         )}
       ></Route>
+
       <Route
         exact
         path="/anime"
@@ -64,7 +66,20 @@ const App = () => {
         render={({ history }) => (
           <>
             <SearchBar setResults={setResults} />
-            <ResultsList results={results} setResults={setResults} setIndResult={setIndResult}/>
+            <ResultsList
+              results={results}
+              setResults={setResults}
+              setIndResult={setIndResult}
+            />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/:category/details/:slug"
+        render={({ history }) => (
+          <>
+            <ResultItemDetail indResult={indResult} />
           </>
         )}
       ></Route>

@@ -18,11 +18,7 @@ function search(req, res) {
 
 function index(req, res) {
   Manga.find({ favoritedBy: req.user._id }).then((manga) => {
-    res.render("manga/index", {
-      title: "Manga Collection",
-      user: req.user,
-      manga,
-    });
+    res.json(manga);
   });
 }
 
@@ -33,23 +29,7 @@ function show(req, res) {
       Manga.findOne({ slug: response.data.data[0].attributes.slug })
         .populate("favoritedBy")
         .then((manga) => {
-          if (manga) {
-            res.render("manga/show", {
-              title: "Manga Details",
-              user: req.user,
-              manga: response.data.data[0],
-              favoritedBy: manga.favoritedBy,
-              reviews: manga.reviews,
-            });
-          } else {
-            res.render("manga/show", {
-              title: "Manga Details",
-              user: req.user,
-              manga: response.data.data[0],
-              favoritedBy: [""],
-              reviews: [""],
-            });
-          }
+          res.json(manga);
         });
     });
 }
@@ -58,13 +38,13 @@ function addToCollection(req, res) {
   Manga.findOne({ slug: req.body.slug }).then((manga) => {
     if (manga) {
       manga.favoritedBy.push(req.user._id);
-      manga.save().then(() => {
-        res.redirect(`/manga/${req.body.slug}`);
+      manga.save().then((manga) => {
+        res.json(manga);
       });
     } else {
       req.body.favoritedBy = req.user._id;
-      Manga.create(req.body).then(() => {
-        res.redirect(`/manga/${req.body.slug}`);
+      Manga.create(req.body).then((manga) => {
+        res.json(manga);
       });
     }
   });

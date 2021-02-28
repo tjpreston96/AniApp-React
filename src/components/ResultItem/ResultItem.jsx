@@ -5,7 +5,11 @@ import "./ResultItem.css";
 const ResultItem = ({ result, setIndResult }) => {
   const { category } = useParams();
   return (
-    <Link to={`/${category}/${result.attributes.slug}`} className="card resultListCard" onClick={() => setIndResult(result)}>
+    <Link
+      to={`/${category}/details/${result.attributes.slug}`}
+      className="card resultListCard"
+      onClick={() => setIndResult(result)}
+    >
       <img
         src={result.attributes.posterImage.large}
         className="card-img-top"
