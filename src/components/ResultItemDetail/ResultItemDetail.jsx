@@ -12,11 +12,13 @@ const ResultItemDetail = ({ indResult }) => {
       {result.attributes.youtubeVideoId ? (
         <iframe
           title="trailer"
+          className='ytPlayer'
           src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
           frameborder="0"
+          allowFullScreen
         ></iframe>
       ) : (
-        <img src={result.attributes.posterImage.original} alt="posterImg" />
+        <img className='posterImg' src={result.attributes.posterImage.original} alt="posterImg" />
       )}
 
       <div className="card detailCard">

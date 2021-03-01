@@ -1,13 +1,50 @@
-.card {
-  color: #151618;
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .detailCard {
   width: 80%;
   margin-top: 1rem;
 }
 
-.detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.card {
+  color: #151618;
+}
+
+.posterImg {
+  max-height: 20rem;
+  width: auto;
+}
+
+@media screen and (min-width: 370px) {
+  .posterImg {
+    max-height: 25rem;
+  }
+}
+
+@media screen and (min-width: 625px) {
+  .posterImg {
+    max-height: 30rem;
+  }
+}
+
+.ytPlayer {
+  width: 80%;
+  height: 12.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .ytPlayer {
+    width: 70%;
+    height: 20rem;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .ytPlayer {
+    width: 65%;
+    height: 30rem;
+  }
 }
