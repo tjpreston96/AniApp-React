@@ -5,10 +5,10 @@ const ResultItemDetail = ({ indResult }) => {
   const result = indResult;
 
   return (
-    <>
-        <h2>
-          {result.type.charAt(0).toUpperCase() + result.type.slice(1)} Details
-        </h2>
+    <div className="detail">
+      <h2>
+        {result.type.charAt(0).toUpperCase() + result.type.slice(1)} Details
+      </h2>
       {result.attributes.youtubeVideoId ? (
         <iframe
           title="trailer"
@@ -16,11 +16,13 @@ const ResultItemDetail = ({ indResult }) => {
           frameborder="0"
         ></iframe>
       ) : (
-        "nope"
+        <img src={result.attributes.posterImage.original} alt="posterImg" />
       )}
-      
-      <div className="card">
-        <h4 className="card-header">{result.attributes.canonicalTitle}</h4>
+
+      <div className="card detailCard">
+        <h4 className="card-header text-center">
+          {result.attributes.canonicalTitle}
+        </h4>
         <div className="card-body">
           <p className="card-text">
             <b>Description:</b>
@@ -45,9 +47,10 @@ const ResultItemDetail = ({ indResult }) => {
             <b>Finish:</b>{" "}
             {result.attributes.endDate ? result.attributes.endDate : "N/A"}
           </p>
+          <form action=""></form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -40,7 +40,7 @@ const NavBar = ({ user, handleLogout }) => {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <Link class="dropdown-item" to="/anime">
-                  Anime List
+                  Collection
                 </Link>
                 <Link class="dropdown-item" to="/anime/search">
                   Add Anime
@@ -64,7 +64,7 @@ const NavBar = ({ user, handleLogout }) => {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <Link class="dropdown-item" to="/manga">
-                  Manga List
+                  Collection
                 </Link>
                 <Link class="dropdown-item" to="/manga/search">
                   Add Manga

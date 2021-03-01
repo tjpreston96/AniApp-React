@@ -14,6 +14,7 @@ import Home from "../../components/Home/Home";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
+import Profile from "../../components/Profile/Profile";
 // CSS
 import "./App.css";
 
@@ -47,6 +48,15 @@ const App = () => {
         render={({ history }) => (
           <>
             <Home />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/profile"
+        render={({ history }) => (
+          <>
+            <Profile user={user}/>
           </>
         )}
       ></Route>
