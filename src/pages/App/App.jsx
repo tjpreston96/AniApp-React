@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+// Services
+import userService from "../../services/userService";
+import tokenService from "../../services/tokenService";
 // Utility Components
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import ForgotPasswordPage from "../ForgotPasswordPage/ForgotPasswordPage";
 import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
-// Services
-import userService from "../../services/userService";
-import tokenService from "../../services/tokenService";
 // Components
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../../components/Home/Home";
@@ -56,14 +56,14 @@ const App = () => {
         path="/profile"
         render={({ history }) => (
           <>
-            <Profile user={user}/>
+            <Profile user={user} />
           </>
         )}
       ></Route>
 
       <Route
         exact
-        path="/anime"
+        path="/anime/collection"
         render={({ history }) => (
           <>
             <Home />
@@ -95,7 +95,7 @@ const App = () => {
       ></Route>
       <Route
         exact
-        path="/manga"
+        path="/manga/collection"
         render={({ history }) => (
           <>
             <Home />

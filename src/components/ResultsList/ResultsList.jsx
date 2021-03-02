@@ -8,7 +8,7 @@ const ResultsList = ({ results, setResults, setIndResult }) => {
 
   useEffect(() => {
     setResults([]);
-  }, [category]);
+  }, [category, setResults]);
 
   const renderedResults = results.map((result) => {
     return (
