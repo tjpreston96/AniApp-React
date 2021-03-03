@@ -31,7 +31,11 @@ function show(req, res) {
       Anime.findOne({ slug: response.data.data[0].attributes.slug })
         .populate("favoritedBy")
         .then((anime) => {
-          res.json(anime);
+          if (anime) {
+            res.json(anime);
+          } else{
+            res.json(response.data.data[0])
+          }
         });
     });
 }

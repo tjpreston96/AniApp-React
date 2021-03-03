@@ -89,7 +89,11 @@ const App = () => {
         path="/:category/details/:slug"
         render={({ history }) => (
           <>
-            <ResultItemDetail history={history} indResult={indResult} />
+            <ResultItemDetail
+              history={history}
+              indResult={indResult}
+              user={user}
+            />
           </>
         )}
       ></Route>

@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ResultItemDetail.css";
+import {
+  addToCollection,
+  removeFromCollection,
+  showDetail,
+} from "../../services/mediaService";
+import { useParams } from "react-router-dom";
 
-const ResultItemDetail = ({ indResult }) => {
-  const result = indResult;
+const ResultItemDetail = ({ indResult, user }) => {
+  const [result, setResult] = useState(indResult);
+  const { slug, category } = useParams();
+
+  const getDetails = async () => {
+    const detail = await showDetail(slug, category);
+    setResult(detail);
+  };
+
+  useEffect(() => getDetails(), []);
+
+  const handleCollectionChange = () => {
+      result.favoritedBy.some((u) => {
+        return u.email === user.email;
+      })
+        ? removeFromCollection()
+        : addToCollection(
+            {
+              title: result.attributes.title,
+              slug: result.attributes.slug,
+              status: result.attributes.status,
+              averageRating: result.attributes.averageRating,
+              startDate: result.attributes.startDate,
+              endDate: result.attributes.endDate,
+              description: result.attributes.description,
+              imageUrl: result.attributes.posterImage.large,
+              videoUrl: result.attributes.youtubeVideoId
+                ? result.attributes.youtubeVideoId
+                : "",
+            },
+            result.type
+          );
+    
+  };
 
   return (
     <div className="detail">
@@ -12,13 +50,17 @@ const ResultItemDetail = ({ indResult }) => {
       {result.attributes.youtubeVideoId ? (
         <iframe
           title="trailer"
-          className='ytPlayer'
+          className="ytPlayer"
           src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
           frameborder="0"
           allowFullScreen
         ></iframe>
       ) : (
-        <img className='posterImg' src={result.attributes.posterImage.original} alt="posterImg" />
+        <img
+          className="posterImg"
+          src={result.attributes.posterImage.large}
+          alt="posterImg"
+        />
       )}
 
       <div className="card detailCard">
@@ -49,7 +91,9 @@ const ResultItemDetail = ({ indResult }) => {
             <b>Finish:</b>{" "}
             {result.attributes.endDate ? result.attributes.endDate : "N/A"}
           </p>
-          <form action=""></form>
+          <button onClick={handleCollectionChange} className="btn gold">
+            { result.favoritedBy ? (result.favoritedBy.some(u => {return u.email === user.email})? "Remove from Collection": "Add to Collection" ): "Add to Collection"}
+          </button>
         </div>
       </div>
     </div>
@@ -58,26 +102,5 @@ const ResultItemDetail = ({ indResult }) => {
 
 export default ResultItemDetail;
 
-//   const topDisplay = () => {
-//     if (result.type === 'manga') {
-//       return (
-//         <img
-//           src={result.attributes.posterImage.original}
-//           alt="posterImg.original"
-//         />
-//       );
-//     } else {
-//       return (
-//         <iframe
-//           id="ytplayer"
-//           type="text/html"
-//           title={result.attributes.canonicalTitle}
-//           width="550"
-//           height="360"
-//           src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
-//           frameborder="0"
-//           allowfullscreen
-//         ></iframe>
-//       );
-//     }
-//   };
+
+// if (favoritedBy.some(u => {return u.email === user.email})) {
