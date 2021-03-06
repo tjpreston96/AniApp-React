@@ -17,7 +17,7 @@ function search(req, res) {
 }
 
 function index(req, res) {
-  Manga.find({ favoritedBy: req.user._id }).then((manga) => {
+  Manga.find({ favoritedBy: req.params.id }).then((manga) => {
     res.json(manga);
   });
 }

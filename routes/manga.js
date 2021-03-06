@@ -3,7 +3,7 @@ const mangaCtrl = require("../controllers/manga");
 
 router.use(require("../config/auth"));
 
-router.get("/", isLoggedIn, mangaCtrl.index);
+router.get("/:id", isLoggedIn, mangaCtrl.index);
 router.post("/search", isLoggedIn, mangaCtrl.search);
 router.get("/:slug", isLoggedIn, mangaCtrl.show);
 router.post("/:slug/collection", isLoggedIn, mangaCtrl.addToCollection);

@@ -4,11 +4,12 @@ const Schema = mongoose.Schema;
 const mangaSchema = new Schema(
   {
     title: String,
+    type: String,
     slug: String,
     status: String,
     averageRating: String,
-    startDate: Date,
-    endDate: Date,
+    startDate: String,
+    endDate: String,
     description: String,
     imageUrl: String,
     videoUrl: String,

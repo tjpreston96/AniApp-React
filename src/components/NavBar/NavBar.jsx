@@ -6,12 +6,12 @@ import "./NavBar.css";
 const NavBar = ({ user, handleLogout }) => {
   let nav = user ? (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <Link className="navbar-brand" to="/">
           <b>AniApp</b>
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavDropdown"
@@ -19,13 +19,13 @@ const NavBar = ({ user, handleLogout }) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item dropdown">
               <Link
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 to="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -36,20 +36,20 @@ const NavBar = ({ user, handleLogout }) => {
                 Anime
               </Link>
               <div
-                class="dropdown-menu bg-dark"
+                className="dropdown-menu bg-dark"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <Link class="dropdown-item" to="/anime/collection">
+                <Link className="dropdown-item" to="/anime/collection">
                   Collection
                 </Link>
-                <Link class="dropdown-item" to="/anime/search">
+                <Link className="dropdown-item" to="/anime/search">
                   Add Anime
                 </Link>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <Link
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 to="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -60,30 +60,30 @@ const NavBar = ({ user, handleLogout }) => {
                 Manga
               </Link>
               <div
-                class="dropdown-menu bg-dark"
+                className="dropdown-menu bg-dark"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <Link class="dropdown-item" to="/manga/collection">
+                <Link className="dropdown-item" to="/manga/collection">
                   Collection
                 </Link>
-                <Link class="dropdown-item" to="/manga/search">
+                <Link className="dropdown-item" to="/manga/search">
                   Add Manga
                 </Link>
               </div>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/profile">
+            <li className="nav-item">
+              <Link className="nav-link" to="/profile">
                 Profile
               </Link>
             </li>
 
-            <li class="nav-item">
-              <Link class="nav-link" to="#">
+            <li className="nav-item">
+              <Link className="nav-link" to="/users">
                 Users
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="#" onClick={handleLogout}>
+            <li className="nav-item">
+              <Link className="nav-link" to="#" onClick={handleLogout}>
                 Log Out
               </Link>
             </li>
@@ -93,12 +93,12 @@ const NavBar = ({ user, handleLogout }) => {
     </>
   ) : (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <Link className="navbar-brand" to="/">
           <b>AniApp</b>
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavDropdown"
@@ -106,17 +106,17 @@ const NavBar = ({ user, handleLogout }) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <Link class="nav-link" to="/login">
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
                 Log In
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/signup">
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">
                 Sign Up
               </Link>
             </li>

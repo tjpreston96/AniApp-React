@@ -1,6 +1,5 @@
 const User = require("../models/user");
-const Anime = require("../models/anime");
-const Manga = require("../models/manga");
+
 
 module.exports = {
   index,
@@ -25,13 +24,7 @@ function showProfile(req, res) {
 }
 
 function show(req, res) {
-  User.findById(req.params.id).then((userInfo) => {
-    Anime.find({ favoritedBy: userInfo._id }).then((anime) => {
-      Manga.find({ favoritedBy: userInfo._id }).then((manga) => {
-        res.json({ userInfo, anime, manga });
-      });
-    });
-  });
+  User.findById(req.params.id).then((userInfo) => res.json(userInfo));
 }
 
 function addFriend(req, res) {

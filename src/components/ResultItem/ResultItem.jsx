@@ -6,7 +6,10 @@ const ResultItem = ({ result, setIndResult }) => {
   const { category } = useParams();
   return (
     <Link
-      to={`/${category}/details/${result.attributes.slug}`}
+      to={{
+        pathname: `/${category}/details/${result.attributes.slug}`,
+        state: { result },
+      }}
       className="card resultListCard"
       onClick={() => setIndResult(result)}
     >

@@ -17,21 +17,21 @@ const SearchBar = ({ setResults }) => {
       <h2>
         Search {category.charAt(0).toUpperCase() + category.slice(1)} Titles
       </h2>
-      <div className="searchBox">
-        <form onSubmit={handleSubmit} className="search">
-          <div class="input-group mb-3">
+      <div classNameName="searchBox">
+        <form onSubmit={handleSubmit} classNameName="search">
+          <div className="input-group mb-3">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               value={term}
               onChange={(evt) => setTerm(evt.target.value)}
               placeholder="Title Search..."
               aria-label="Title Search"
               aria-describedby="button-addon2"
             />
-            <div class="input-group-append">
-              <button class="btn gold" type="button" id="button-addon2">
-                Search <i class="bi bi-search"></i>
+            <div className="input-group-append">
+              <button className="btn gold" type="button" id="button-addon2">
+                Search <i className="bi bi-search"></i>
               </button>
             </div>
           </div>

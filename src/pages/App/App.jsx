@@ -15,16 +15,18 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
 import Profile from "../../components/Profile/Profile";
+import Users from "../../components/Users/Users";
 // CSS
 import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState("");
   const [results, setResults] = useState([]);
-  const [indResult, setIndResult] = useState([]);
+
   useEffect(() => {
     setUser(tokenService.getUserFromToken());
   }, []);
+
   const handleLogout = () => {
     userService.logout();
     setUser(null);
@@ -53,6 +55,15 @@ const App = () => {
       ></Route>
       <Route
         exact
+        path="/users"
+        render={({ history }) => (
+          <>
+            <Users user={user} />
+          </>
+        )}
+      ></Route>
+      <Route
+        exact
         path="/profile"
         render={({ history }) => (
           <>
@@ -76,11 +87,7 @@ const App = () => {
         render={({ history }) => (
           <>
             <SearchBar setResults={setResults} />
-            <ResultsList
-              results={results}
-              setResults={setResults}
-              setIndResult={setIndResult}
-            />
+            <ResultsList results={results} setResults={setResults} />
           </>
         )}
       ></Route>
@@ -89,11 +96,7 @@ const App = () => {
         path="/:category/details/:slug"
         render={({ history }) => (
           <>
-            <ResultItemDetail
-              history={history}
-              indResult={indResult}
-              user={user}
-            />
+            <ResultItemDetail history={history} user={user} />
           </>
         )}
       ></Route>
