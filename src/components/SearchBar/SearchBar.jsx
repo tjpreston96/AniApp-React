@@ -17,8 +17,8 @@ const SearchBar = ({ setResults }) => {
       <h2>
         Search {category.charAt(0).toUpperCase() + category.slice(1)} Titles
       </h2>
-      <div classNameName="searchBox">
-        <form onSubmit={handleSubmit} classNameName="search">
+      <div className="searchBox">
+        <form onSubmit={handleSubmit} className="search">
           <div className="input-group mb-3">
             <input
               type="text"
