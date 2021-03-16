@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 // Services
 import userService from "../../services/userService";
 import tokenService from "../../services/tokenService";
@@ -56,20 +56,16 @@ const App = () => {
       <Route
         exact
         path="/users"
-        render={({ history }) => (
-          <>
-            <Users user={user} />
-          </>
-        )}
+        render={({ history }) =>
+          user ? <Users user={user} /> : <Redirect to="/login" />
+        }
       ></Route>
       <Route
         exact
         path="/profile"
-        render={({ history }) => (
-          <>
-            <Profile user={user} />
-          </>
-        )}
+        render={({ history }) =>
+          user ? <Profile user={user} /> : <Redirect to="/login" />
+        }
       ></Route>
 
       <Route
@@ -85,10 +81,10 @@ const App = () => {
         exact
         path="/:category/search"
         render={({ history }) => (
-          <>
+          user?(<>
             <SearchBar setResults={setResults} />
             <ResultsList results={results} setResults={setResults} />
-          </>
+          </>):(<Redirect to="/login" />)
         )}
       ></Route>
       <Route

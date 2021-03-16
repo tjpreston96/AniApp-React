@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SearchBar.css";
 import { search } from "../../services/searchService";
 import { useParams } from "react-router-dom";
