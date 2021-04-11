@@ -27,7 +27,10 @@ const Users = ({ user }) => {
               </div>
               <p>Email: {user.email}</p>
               <p>Joined: {user.createdAt}</p>
+              <div className="card-footer">
+
               <button className="btn gold">friend button</button>
+              </div>
             </div>
           );
         })}
