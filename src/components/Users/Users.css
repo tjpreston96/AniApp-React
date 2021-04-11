@@ -1,0 +1,11 @@
+.user {
+  margin-bottom: 0.5rem;
+  width: 80%;
+}
+
+.userDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
