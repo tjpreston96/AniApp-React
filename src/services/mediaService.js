@@ -21,8 +21,6 @@ export function removeFromCollection(formData, type) {
     }).then((res) => res.json());
   }
 
-
-  // todo make 
 export function showDetail(slug, type) {
   return fetch(`/api/${type}/${slug}`, {
     headers: {

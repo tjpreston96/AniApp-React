@@ -77,6 +77,26 @@ function resetPassword(password, token) {
     });
 }
 
+function newFriend(id) {
+  return fetch(`/api/${id}/friend`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + tokenService.getToken(),
+    }
+  }).then((res) => res.json());
+}
+
+function removeFriend(id) {
+  return fetch(`/api/${id}/friend`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + tokenService.getToken(),
+    }
+  }).then((res) => res.json());
+}
+
 let functions = {
   signup,
   getUser,
@@ -85,6 +105,8 @@ let functions = {
   login,
   forgotPassword,
   resetPassword,
+  newFriend,
+  removeFriend
 };
 
 export default functions;
