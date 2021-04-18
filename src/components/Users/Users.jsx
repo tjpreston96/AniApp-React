@@ -26,11 +26,9 @@ const Users = ({ user }) => {
                 </p>
               </div>
               <p>Email: {user.email}</p>
-              <p>Joined: {user.createdAt.slice(0,10)}</p>
-              <div className="card-footer">
+              <p>Joined: {user.createdAt.slice(0, 10)}</p>
 
               <button className="btn gold">friend button</button>
-              </div>
             </div>
           );
         })}

@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 // Services
 import userService from "../../services/userService";
 import tokenService from "../../services/tokenService";
-// Utility Components
+// Utility Pages
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import ForgotPasswordPage from "../ForgotPasswordPage/ForgotPasswordPage";
@@ -43,7 +43,9 @@ const App = () => {
 
   return (
     <>
+      {/* Static Nav */}
       <NavBar user={user} handleLogout={handleLogout} />
+
       {/* ---- Home ---- */}
       <Route
         exact
