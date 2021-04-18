@@ -17,7 +17,7 @@ import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail
 import Profile from "../../components/Profile/Profile";
 import Users from "../../components/Users/Users";
 import AnimeCollection from "../../components/AnimeCollection/AnimeCollection";
-import MangaCollection from "../../components/MangaCollection/MangaCollection"
+import MangaCollection from "../../components/MangaCollection/MangaCollection";
 // CSS
 import "./App.css";
 
