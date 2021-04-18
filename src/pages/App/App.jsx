@@ -108,11 +108,15 @@ const App = () => {
       <Route
         exact
         path="/:category/details/:slug"
-        render={({ history }) => (
-          <>
-            <ResultItemDetail history={history} user={user} />
-          </>
-        )}
+        render={({ history }) =>
+          user ? (
+            <>
+              <ResultItemDetail history={history} user={user} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       ></Route>
 
       {/* ---- Manga Collection ---- */}
