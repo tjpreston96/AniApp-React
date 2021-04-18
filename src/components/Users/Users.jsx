@@ -4,6 +4,7 @@ import userService from "../../services/userService";
 
 const Users = ({ user }) => {
   const [users, setUsers] = useState([]);
+  const currentUser = user;
 
   useEffect(() => {
     // IIFE - Immediately Invoked Function Expression
@@ -17,16 +18,16 @@ const Users = ({ user }) => {
     <div>
       <h1>Users</h1>
       <div className="userDiv">
-        {users.map((user) => {
+        {users.map((u, idx) => {
           return (
-            <div className="card user">
+            <div key={idx} className="card user">
               <div className="card-header">
                 <p>
-                  <b>{user.name}</b>
+                  <b>{u.name}</b>
                 </p>
               </div>
-              <p>Email: {user.email}</p>
-              <p>Joined: {user.createdAt.slice(0, 10)}</p>
+              <p>Email: {u.email}</p>
+              <p>Joined: {u.createdAt.slice(0, 10)}</p>
 
               <button className="btn gold">friend button</button>
             </div>

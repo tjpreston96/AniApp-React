@@ -16,6 +16,8 @@ import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
 import Profile from "../../components/Profile/Profile";
 import Users from "../../components/Users/Users";
+import AnimeCollection from "../../components/AnimeCollection/AnimeCollection";
+import MangaCollection from "../../components/MangaCollection/MangaCollection"
 // CSS
 import "./App.css";
 
@@ -82,7 +84,7 @@ const App = () => {
         render={({ history }) =>
           user ? (
             <>
-              <Home />
+              <AnimeCollection />
             </>
           ) : (
             <Redirect to="/login" />
@@ -128,7 +130,7 @@ const App = () => {
         render={({ history }) =>
           user ? (
             <>
-              <Home />
+              <MangaCollection />
             </>
           ) : (
             <Redirect to="/login" />
