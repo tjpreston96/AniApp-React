@@ -26,7 +26,7 @@ const Users = ({ user }) => {
                 </p>
               </div>
               <p>Email: {user.email}</p>
-              <p>Joined: {user.createdAt}</p>
+              <p>Joined: {user.createdAt.slice(0,10)}</p>
               <div className="card-footer">
 
               <button className="btn gold">friend button</button>

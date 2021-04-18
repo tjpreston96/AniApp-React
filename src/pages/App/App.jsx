@@ -44,6 +44,7 @@ const App = () => {
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
+      {/* ---- Home ---- */}
       <Route
         exact
         path="/"
@@ -53,6 +54,8 @@ const App = () => {
           </>
         )}
       ></Route>
+
+      {/* ---- Users ---- */}
       <Route
         exact
         path="/users"
@@ -60,6 +63,8 @@ const App = () => {
           user ? <Users user={user} /> : <Redirect to="/login" />
         }
       ></Route>
+
+      {/* ---- Profile Page ---- */}
       <Route
         exact
         path="/profile"
@@ -68,25 +73,38 @@ const App = () => {
         }
       ></Route>
 
+      {/* ---- Anime Collection ---- */}
       <Route
         exact
         path="/anime/collection"
-        render={({ history }) => (
-          <>
-            <Home />
-          </>
-        )}
+        render={({ history }) =>
+          user ? (
+            <>
+              <Home />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       ></Route>
+
+      {/* ---- Search Page (Manga & Anime) ---- */}
       <Route
         exact
         path="/:category/search"
-        render={({ history }) => (
-          user?(<>
-            <SearchBar setResults={setResults} />
-            <ResultsList results={results} setResults={setResults} />
-          </>):(<Redirect to="/login" />)
-        )}
+        render={({ history }) =>
+          user ? (
+            <>
+              <SearchBar setResults={setResults} />
+              <ResultsList results={results} setResults={setResults} />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       ></Route>
+
+      {/* ---- Results (Detail Page) ----  */}
       <Route
         exact
         path="/:category/details/:slug"
@@ -96,16 +114,23 @@ const App = () => {
           </>
         )}
       ></Route>
+
+      {/* ---- Manga Collection ---- */}
       <Route
         exact
         path="/manga/collection"
-        render={({ history }) => (
-          <>
-            <Home />
-          </>
-        )}
+        render={({ history }) =>
+          user ? (
+            <>
+              <Home />
+            </>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       ></Route>
 
+      {/* ---- Switch for Utility Pages ---- */}
       <Switch>
         <Route
           exact
