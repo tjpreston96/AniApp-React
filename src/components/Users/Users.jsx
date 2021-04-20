@@ -28,8 +28,22 @@ const Users = ({ user }) => {
               </div>
               <p>Email: {u.email}</p>
               <p>Joined: {u.createdAt.slice(0, 10)}</p>
-
-              <button className="btn gold">friend button</button>
+              {!currentUser.friends.includes(u._id) ? (
+                <button
+                  className="btn gold"
+                  onClick={() => userService.newFriend(u._id)}
+                >
+                  Add Friend
+                </button>
+              ) : (
+                <button
+                  className="btn gold"
+                  onClick={() => userService.removeFriend(u._id)}
+                >
+                  Unfriend
+                </button>
+              )}
+              {/* <button className="btn gold">friend button</button> */}
             </div>
           );
         })}
