@@ -84,7 +84,7 @@ const App = () => {
         render={({ history }) =>
           user ? (
             <>
-              <AnimeCollection />
+              <AnimeCollection user={user} />
             </>
           ) : (
             <Redirect to="/login" />

@@ -19,6 +19,7 @@ const Users = ({ user }) => {
       <h1>Users</h1>
       <div className="userDiv">
         {users.map((u, idx) => {
+          const uDateString = new Date(u.createdAt).toLocaleString();
           return (
             <div key={idx} className="card user">
               <div className="card-header">
@@ -27,7 +28,7 @@ const Users = ({ user }) => {
                 </p>
               </div>
               <p>Email: {u.email}</p>
-              <p>Joined: {u.createdAt.slice(0, 10)}</p>
+              <p>Joined: {uDateString}</p>
               {!currentUser.friends.includes(u._id) ? (
                 <button
                   className="btn gold"

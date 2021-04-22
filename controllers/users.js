@@ -30,6 +30,7 @@ function show(req, res) {
 function addFriend(req, res) {
   req.user.friends.push(req.params.id);
   req.user.save().then((user) => {
+    console.log(user)
     res.json(user);
   });
 }

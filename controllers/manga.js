@@ -27,7 +27,6 @@ function show(req, res) {
     .get(`https://kitsu.io/api/edge//manga?filter[slug]=${req.params.slug}`)
     .then((response) => {
       Manga.findOne({ slug: response.data.data[0].attributes.slug })
-        .populate("favoritedBy")
         .then((manga) => {
           res.json(manga);
         });

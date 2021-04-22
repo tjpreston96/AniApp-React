@@ -78,7 +78,7 @@ function resetPassword(password, token) {
 }
 
 function newFriend(id) {
-  return fetch(`/api/${id}/friend`, {
+  return fetch(`/api/users/${id}/friend`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -88,7 +88,7 @@ function newFriend(id) {
 }
 
 function removeFriend(id) {
-  return fetch(`/api/${id}/friend`, {
+  return fetch(`/api/users/${id}/unfriend`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
