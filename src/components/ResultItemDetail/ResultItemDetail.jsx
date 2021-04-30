@@ -16,7 +16,8 @@ const ResultItemDetail = ({ user }) => {
     const detail = await showDetail(slug, category);
     // Checking to see if in database
     if (detail) {
-      setResult(detail);
+      console.log(detail);
+      // setResult(detail);
     }
   };
 
@@ -66,25 +67,25 @@ const ResultItemDetail = ({ user }) => {
 
   return (
     <div className="detail">
-      <h2>
+      {/* <h2>
         {result.type.charAt(0).toUpperCase() + result.type.slice(1)} Details
-      </h2>
+      </h2> */}
       {result.attributes ? (
         <>
           {result.attributes.youtubeVideoId ? (
-          <iframe
-            title="trailer"
-            className="ytPlayer"
-            src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
-            frameborder="0"
-            allowFullScreen
-          ></iframe>
+            <iframe
+              title="trailer"
+              className="ytPlayer"
+              src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
+              frameborder="0"
+              allowFullScreen
+            ></iframe>
           ) : (
-          <img
-            className="posterImg"
-            src={result.attributes.posterImage.large}
-            alt="posterImg"
-          />
+            <img
+              className="posterImg"
+              src={result.attributes.posterImage.large}
+              alt="posterImg"
+            />
           )}
           <div className="card detailCard">
             <h4 className="card-header text-center">

@@ -35,8 +35,8 @@ function show(req, res) {
         .then((anime) => {
           if (anime) {
             res.json(anime);
-          } else{
-            res.json(response.data.data[0])
+          } else {
+            res.json(response.data.data[0]);
           }
         });
     });
@@ -46,7 +46,7 @@ function addToCollection(req, res) {
   Anime.findOne({ slug: req.body.slug }).then((anime) => {
     if (anime) {
       anime.favoritedBy.push(req.user._id);
-      anime.save().then((anime) => {
+      anime.save().then(() => {
         res.json(anime);
       });
     } else {

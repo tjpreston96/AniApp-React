@@ -17,27 +17,35 @@ function search(req, res) {
 }
 
 function index(req, res) {
-  Manga.find({ favoritedBy: req.params.id }).then((manga) => {
+  Manga.find({ favoritedBy: req.user._id }).then((manga) => {
     res.json(manga);
   });
 }
+
+// function index(req, res) {
+//   Manga.find({ favoritedBy: req.params.id }).then((manga) => {
+//     res.json(manga);
+//   });
+// }
 
 function show(req, res) {
   axios
     .get(`https://kitsu.io/api/edge//manga?filter[slug]=${req.params.slug}`)
     .then((response) => {
-      Manga.findOne({ slug: response.data.data[0].attributes.slug })
-        .then((manga) => {
+      Manga.findOne({ slug: response.data.data[0].attributes.slug }).then(
+        (manga) => {
           res.json(manga);
-        });
+        }
+      );
     });
 }
 
 function addToCollection(req, res) {
+  console.log(req.user._id);
   Manga.findOne({ slug: req.body.slug }).then((manga) => {
     if (manga) {
       manga.favoritedBy.push(req.user._id);
-      manga.save().then((manga) => {
+      manga.save().then(() => {
         res.json(manga);
       });
     } else {
