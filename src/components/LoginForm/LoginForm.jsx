@@ -28,22 +28,21 @@ const LoginForm = ({ history, handleSignupOrLogin, updateMessage }) => {
     <div>
       <h3>Log In</h3>
       <form onSubmit={handleSubmit}>
-          <div className="form-group">
-
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          className="form-control"
-          value={loginInfo.email}
-          name="email"
-          aria-describedby="emailHelp"
-          onChange={handleChange}
-        />
-        <small id="emailHelp" class="form-text text-muted">
-          Please <em>DON'T</em> share your email or password with others.
-        </small>
-          </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            className="form-control"
+            value={loginInfo.email}
+            name="email"
+            aria-describedby="emailHelp"
+            onChange={handleChange}
+          />
+          <small id="emailHelp" className="form-text text-muted">
+            Please <em>DON'T</em> share your email or password with others.
+          </small>
+        </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
@@ -58,16 +57,16 @@ const LoginForm = ({ history, handleSignupOrLogin, updateMessage }) => {
         </div>
         <button className="btn gold" type="submit">
           Log In
-          <i class="bi bi-box-arrow-in-right"></i>
+          <i className="bi bi-box-arrow-in-right"></i>
         </button>
         &nbsp;&nbsp;&nbsp;
         <Link className="btn violet" to="/">
-          Cancel <i class="bi bi-x-circle-fill"></i>
+          Cancel <i className="bi bi-x-circle-fill"></i>
         </Link>
       </form>
 
       <Link to="/forgot" style={{ color: "#DFDFDF" }}>
-        Forgot Password <i class="bi bi-question-circle"></i>
+        Forgot Password <i className="bi bi-question-circle"></i>
       </Link>
     </div>
   );

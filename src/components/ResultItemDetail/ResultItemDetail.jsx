@@ -67,9 +67,9 @@ const ResultItemDetail = ({ user }) => {
 
   return (
     <div className="detail">
-      {/* <h2>
+      <h2>
         {result.type.charAt(0).toUpperCase() + result.type.slice(1)} Details
-      </h2> */}
+      </h2>
       {result.attributes ? (
         <>
           {result.attributes.youtubeVideoId ? (
