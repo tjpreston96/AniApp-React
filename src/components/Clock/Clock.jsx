@@ -10,13 +10,15 @@ const Clock = () => {
     }, 1000);
   });
   return (
-    <div className="time" style={{ textAlign: "center" }}>
-      <h3>
-        Today's Date: <br />
-        {date} <br />
-        {time}
-      </h3>
-    </div>
+    <>
+      <div className="time" style={{ textAlign: "center" }}>
+        <h3>
+          Today's Date: <br />
+          {date} <br />
+          {time}
+        </h3>
+      </div>
+    </>
   );
 };
 
