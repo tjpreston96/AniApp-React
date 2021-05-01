@@ -52,7 +52,7 @@ const App = () => {
       <Route
         exact
         path="/"
-        render={({ history }) => (
+        render={() => (
           <>
             <Home />
           </>
@@ -63,16 +63,14 @@ const App = () => {
       <Route
         exact
         path="/users"
-        render={({ history }) =>
-          user ? <Users user={user} /> : <Redirect to="/login" />
-        }
+        render={() => (user ? <Users user={user} /> : <Redirect to="/login" />)}
       ></Route>
 
       {/* ---- Profile Page ---- */}
       <Route
         exact
         path="/profile"
-        render={({ history }) =>
+        render={() =>
           user ? <Profile user={user} /> : <Redirect to="/login" />
         }
       ></Route>
@@ -81,7 +79,7 @@ const App = () => {
       <Route
         exact
         path="/anime/collection"
-        render={({ history }) =>
+        render={() =>
           user ? (
             <>
               <AnimeCollection user={user} />
@@ -96,7 +94,7 @@ const App = () => {
       <Route
         exact
         path="/:category/search"
-        render={({ history }) =>
+        render={() =>
           user ? (
             <>
               <SearchBar setResults={setResults} />
@@ -112,10 +110,10 @@ const App = () => {
       <Route
         exact
         path="/:category/details/:slug"
-        render={({ history }) =>
+        render={() =>
           user ? (
             <>
-              <ResultItemDetail history={history} user={user} />
+              <ResultItemDetail user={user} />
             </>
           ) : (
             <Redirect to="/login" />
@@ -127,7 +125,7 @@ const App = () => {
       <Route
         exact
         path="/manga/collection"
-        render={({ history }) =>
+        render={() =>
           user ? (
             <>
               <MangaCollection />
@@ -143,10 +141,9 @@ const App = () => {
         <Route
           exact
           path="/login"
-          render={({ history }) => (
+          render={() => (
             <>
               <LoginPage
-                history={history}
                 handleSignupOrLogin={handleSignupOrLogin}
                 determineError={determineError}
               />
@@ -157,10 +154,9 @@ const App = () => {
         <Route
           exact
           path="/signup"
-          render={({ history }) => (
+          render={() => (
             <>
               <SignupPage
-                history={history}
                 handleSignupOrLogin={handleSignupOrLogin}
                 determineError={determineError}
               />
