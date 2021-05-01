@@ -141,9 +141,10 @@ const App = () => {
         <Route
           exact
           path="/login"
-          render={() => (
+          render={({ history }) => (
             <>
               <LoginPage
+                history={history}
                 handleSignupOrLogin={handleSignupOrLogin}
                 determineError={determineError}
               />
@@ -154,9 +155,10 @@ const App = () => {
         <Route
           exact
           path="/signup"
-          render={() => (
+          render={({ history }) => (
             <>
               <SignupPage
+                history={history}
                 handleSignupOrLogin={handleSignupOrLogin}
                 determineError={determineError}
               />

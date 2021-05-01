@@ -5,9 +5,10 @@ import {
   removeFromCollection,
   showDetail,
 } from "../../services/mediaService";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useHistory } from "react-router-dom";
 
 const ResultItemDetail = ({ user }) => {
+  
   const location = useLocation();
   const [result, setResult] = useState(location.state.result);
   const { slug, category } = useParams();
