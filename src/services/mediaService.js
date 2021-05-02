@@ -28,3 +28,14 @@ export function showDetail(slug, type) {
     },
   }).then((res) => res.json());
 }
+
+
+export function animeIdx() {
+  return fetch('/api/anime/', {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + tokenService.getToken(),
+    },
+  }).then((res) => res.json());
+}
