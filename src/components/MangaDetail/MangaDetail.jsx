@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const MangaDetail = ({user, result}) => {
+const MangaDetail = ({ user, result }) => {
   return (
     <>
       <img
@@ -14,31 +14,28 @@ const MangaDetail = ({user, result}) => {
           <p className="card-text">
             <b>Description:</b>
             <br />
-            {result.description}
+            {result.attributes.description}
           </p>
           <p className="card-text">
-            <b>Age Rating:</b> {result.ageRating}
+            <b>Age Rating:</b>{" "}
+            {result.attributes.ageRating ? result.attributes.ageRating : "N/A"}
           </p>
           <p className="card-text">
-            <b>Rating:</b> {result.averageRating}
+            <b>Rating:</b> {result.attributes.averageRating}
           </p>
           <p className="card-text">
             <b>Status:</b>{" "}
-            {result.status.charAt(0).toUpperCase() + result.status.slice(1)}
+            {result.attributes.status.charAt(0).toUpperCase() +
+              result.attributes.status.slice(1)}
           </p>
           <p className="card-text">
-            <b>Start:</b> {result.startDate}
+            <b>Start:</b> {result.attributes.startDate}
           </p>
           <p className="card-text">
-            <b>Finish:</b> {result.endDate ? result.endDate : "N/A"}
+            <b>Finish:</b>{" "}
+            {result.attributes.endDate ? result.attributes.endDate : "N/A"}
           </p>
-          <button  className="btn gold">
-            {result.favoritedBy.some((u) => {
-              return u.email === user.email;
-            })
-              ? "Remove from Collection"
-              : "Add to Collection"}
-          </button>
+          <button className="btn gold">Temp. Label</button>
         </div>
       </div>
     </>
