@@ -12,6 +12,7 @@ const SearchBar = ({ setResults }) => {
     const results = await search(term, category);
     setResults(results);
   };
+  
   return (
     <>
       <h2>

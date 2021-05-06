@@ -82,7 +82,7 @@ function newFriend(id) {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "Authorization": "Bearer " + tokenService.getToken(),
+      "Authorization": "Bearer " + tokenService.getToken()
     }
   }).then((res) => res.json());
 }

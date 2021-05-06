@@ -1,6 +1,5 @@
 const User = require("../models/user");
 
-
 module.exports = {
   index,
   showProfile,
@@ -28,17 +27,21 @@ function show(req, res) {
 }
 
 function addFriend(req, res) {
-  req.user.friends.push(req.params.id);
-  req.user.save().then((user) => {
-    console.log(user)
-    res.json(user);
+  User.findById(req.user._id).then((user) => {
+    user.friends.push(req.params.id);
+    user.save().then((newUser) => {
+      console.log(newUser);
+      res.json(newUser);
+    });
   });
 }
 
 function removeFriend(req, res) {
-  let idx = req.user.friends.indexOf(req.params.id);
-  req.user.friends.splice(idx, 1);
-  req.user.save().then((user) => {
-    res.json(user);
+  User.findById(req.user._id).then((user) => {
+    let idx = user.friends.indexOf(req.params.id);
+    user.friends.splice(idx, 1);
+    user.save().then((u) => {
+      res.json(u);
+    });
   });
 }

@@ -11,6 +11,7 @@ import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
 // Components
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../../components/Home/Home";
+import SearchPage from "../../pages/SearchPage/SearchPage";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
@@ -49,15 +50,7 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
 
       {/* ---- Home ---- */}
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <>
-            <Home />
-          </>
-        )}
-      ></Route>
+      <Route exact path="/" render={() => <Home />}></Route>
 
       {/* ---- Users ---- */}
       <Route
@@ -80,13 +73,7 @@ const App = () => {
         exact
         path="/anime/collection"
         render={() =>
-          user ? (
-            <>
-              <AnimeCollection user={user} />
-            </>
-          ) : (
-            <Redirect to="/login" />
-          )
+          user ? <AnimeCollection user={user} /> : <Redirect to="/login" />
         }
       ></Route>
 
@@ -94,16 +81,7 @@ const App = () => {
       <Route
         exact
         path="/:category/search"
-        render={() =>
-          user ? (
-            <>
-              <SearchBar setResults={setResults} />
-              <ResultsList results={results} setResults={setResults} />
-            </>
-          ) : (
-            <Redirect to="/login" />
-          )
-        }
+        render={() => (user ? <SearchPage /> : <Redirect to="/login" />)}
       ></Route>
 
       {/* ---- Results (Detail Page) ----  */}
@@ -111,13 +89,7 @@ const App = () => {
         exact
         path="/:category/details/:slug"
         render={() =>
-          user ? (
-            <>
-              <ResultItemDetail user={user} />
-            </>
-          ) : (
-            <Redirect to="/login" />
-          )
+          user ? <ResultItemDetail user={user} /> : <Redirect to="/login" />
         }
       ></Route>
 
@@ -125,15 +97,7 @@ const App = () => {
       <Route
         exact
         path="/manga/collection"
-        render={() =>
-          user ? (
-            <>
-              <MangaCollection />
-            </>
-          ) : (
-            <Redirect to="/login" />
-          )
-        }
+        render={() => (user ? <MangaCollection /> : <Redirect to="/login" />)}
       ></Route>
 
       {/* ---- Switch for Utility Pages ---- */}
@@ -142,13 +106,11 @@ const App = () => {
           exact
           path="/login"
           render={({ history }) => (
-            <>
-              <LoginPage
-                history={history}
-                handleSignupOrLogin={handleSignupOrLogin}
-                determineError={determineError}
-              />
-            </>
+            <LoginPage
+              history={history}
+              handleSignupOrLogin={handleSignupOrLogin}
+              determineError={determineError}
+            />
           )}
         ></Route>
 
@@ -156,33 +118,23 @@ const App = () => {
           exact
           path="/signup"
           render={({ history }) => (
-            <>
-              <SignupPage
-                history={history}
-                handleSignupOrLogin={handleSignupOrLogin}
-                determineError={determineError}
-              />
-            </>
+            <SignupPage
+              history={history}
+              handleSignupOrLogin={handleSignupOrLogin}
+              determineError={determineError}
+            />
           )}
         ></Route>
 
         <Route
           exact
           path="/forgot"
-          render={() => (
-            <>
-              <ForgotPasswordPage determineError={determineError} />
-            </>
-          )}
+          render={() => <ForgotPasswordPage determineError={determineError} />}
         ></Route>
 
         <Route
           path="/resetpassword/:token"
-          render={() => (
-            <>
-              <ResetPasswordPage determineError={determineError} />
-            </>
-          )}
+          render={() => <ResetPasswordPage determineError={determineError} />}
         ></Route>
         <Route path="*"></Route>
       </Switch>

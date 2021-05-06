@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { animeIdx } from "../../services/mediaService";
 
 const AnimeDetail = ({ user, result }) => {
+  const [idx, setIdx] = useState([]);
+  useEffect(() => {
+    setIdx(animeIdx());
+    console.log(idx);
+  }, []);
+
   return (
     <>
       <iframe
         title="trailer"
         className="ytPlayer"
         src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
-        frameborder="0"
+        frameBorder="0"
         allowFullScreen
       ></iframe>
       <div className="card detailCard">

@@ -31,7 +31,17 @@ export function showDetail(slug, type) {
 
 
 export function animeIdx() {
-  return fetch('/api/anime/', {
+  return fetch(`/api/anime/`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + tokenService.getToken(),
+    },
+  }).then((res) => res.json());
+}
+
+export function mangaIdx() {
+  return fetch(`/api/anime/`, {
     method: "GET",
     headers: {
       "content-type": "application/json",

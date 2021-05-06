@@ -19,8 +19,8 @@ const ResultItemDetail = ({ user }) => {
     const detail = await showDetail(slug, category);
     // Checking to see if in database
     if (detail) {
-      console.log(detail);
       // setResult(detail);
+      console.log(detail);
     }
   };
 

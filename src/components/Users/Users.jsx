@@ -4,7 +4,17 @@ import userService from "../../services/userService";
 
 const Users = ({ user }) => {
   const [users, setUsers] = useState([]);
-  const currentUser = user;
+  const [currentUser, setCurrentUser] = useState(user);
+
+  const handleSubmit = async (userID, type) => {
+    let newUser;
+    if (type === "add") {
+      newUser = await userService.newFriend(userID);
+    } else {
+      newUser = await userService.removeFriend(userID);
+    }
+    setCurrentUser(newUser);
+  };
 
   useEffect(() => {
     // IIFE - Immediately Invoked Function Expression
@@ -32,19 +42,18 @@ const Users = ({ user }) => {
               {!currentUser.friends.includes(u._id) ? (
                 <button
                   className="btn gold"
-                  onClick={() => userService.newFriend(u._id)}
+                  onClick={() => handleSubmit(u._id, "add")}
                 >
                   Add Friend
                 </button>
               ) : (
                 <button
                   className="btn gold"
-                  onClick={() => userService.removeFriend(u._id)}
+                  onClick={() => handleSubmit(u._id, "remove")}
                 >
                   Unfriend
                 </button>
               )}
-              {/* <button className="btn gold">friend button</button> */}
             </div>
           );
         })}
