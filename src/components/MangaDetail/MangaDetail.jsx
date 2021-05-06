@@ -9,7 +9,9 @@ const MangaDetail = ({ user, result }) => {
         alt="posterImg"
       />
       <div className="card detailCard">
-        <h4 className="card-header text-center">{result.canonicalTitle}</h4>
+        <h4 className="card-header text-center">
+          {result.attributes.canonicalTitle}
+        </h4>
         <div className="card-body">
           <p className="card-text">
             <b>Description:</b>
