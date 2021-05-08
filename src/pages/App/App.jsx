@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 // Services
 import userService from "../../services/userService";
-import tokenService from "../../services/tokenService";
 // Utility Pages
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import ForgotPasswordPage from "../ForgotPasswordPage/ForgotPasswordPage";
 import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
+import SearchPage from "../SearchPage/SearchPage";
 // Components
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../../components/Home/Home";
-import SearchPage from "../../pages/SearchPage/SearchPage";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
 import Profile from "../../components/Profile/Profile";
 import Users from "../../components/Users/Users";
@@ -24,10 +21,9 @@ import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState("");
-  const [results, setResults] = useState([]);
 
   useEffect(() => {
-    setUser(tokenService.getUserFromToken());
+    setUser(userService.getUser());
   }, []);
 
   const handleLogout = () => {
@@ -53,11 +49,7 @@ const App = () => {
       <Route exact path="/" render={() => <Home />}></Route>
 
       {/* ---- Users ---- */}
-      <Route
-        exact
-        path="/users"
-        render={() => (user ? <Users user={user} /> : <Redirect to="/login" />)}
-      ></Route>
+      <Route exact path="/users" render={() => <Users user={user} />}></Route>
 
       {/* ---- Profile Page ---- */}
       <Route

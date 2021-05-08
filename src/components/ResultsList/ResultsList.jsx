@@ -7,9 +7,9 @@ const ResultsList = ({ results, setResults }) => {
   const [indResult, setIndResult] = useState([]);
   const { category } = useParams();
 
-  useEffect(() => {
-    setResults([]);
-  }, [category, setResults]);
+  // useEffect(() => {
+  //   setResults([]);
+  // }, [category, setResults]);
 
   const renderedResults = results.map((result) => {
     return (

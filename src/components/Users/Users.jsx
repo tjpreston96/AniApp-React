@@ -4,7 +4,8 @@ import userService from "../../services/userService";
 
 const Users = ({ user }) => {
   const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(user);
+  const [currentUser, setCurrentUser] = useState("");
+  const [friends, setFriends] = useState([]);
 
   const handleSubmit = async (userID, type) => {
     let newUser;
@@ -22,6 +23,7 @@ const Users = ({ user }) => {
       const allUsers = await userService.getAllUsers();
       setUsers(allUsers);
     })();
+    setCurrentUser(user);
   }, [setUsers]);
 
   return (
@@ -39,7 +41,7 @@ const Users = ({ user }) => {
               </div>
               <p>Email: {u.email}</p>
               <p>Joined: {uDateString}</p>
-              {!currentUser.friends.includes(u._id) ? (
+              {!user.friends.includes(u._id) || !friends.includes(u._id) ? (
                 <button
                   className="btn gold"
                   onClick={() => handleSubmit(u._id, "add")}
@@ -48,7 +50,7 @@ const Users = ({ user }) => {
                 </button>
               ) : (
                 <button
-                  className="btn gold"
+                  className="btn pink"
                   onClick={() => handleSubmit(u._id, "remove")}
                 >
                   Unfriend
