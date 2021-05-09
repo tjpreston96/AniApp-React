@@ -46,7 +46,7 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
 
       {/* ---- Home ---- */}
-      <Route exact path="/" render={() => <Home />}></Route>
+      <Route exact path="/" render={() => <Home />}/>
 
       {/* ---- Users ---- */}
       <Route exact path="/users" render={() => <Users user={user} />}></Route>

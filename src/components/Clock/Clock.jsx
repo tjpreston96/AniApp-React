@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-const Clock = () => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
-  const [date, setDate] = useState(new Date().toDateString());
-  useEffect(() => {
-    setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-      setDate(new Date().toDateString());
-    }, 1000);
-  });
+const Clock = ({ time, date }) => {
   return (
     <>
       <div className="time" style={{ textAlign: "center" }}>
