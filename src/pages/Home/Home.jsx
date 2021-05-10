@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Clock from "../Clock/Clock";
+import Clock from "../../components/Clock/Clock";
 import "./Home.css";
 
 const Home = () => {

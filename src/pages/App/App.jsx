@@ -3,14 +3,16 @@ import { Route, Switch, Redirect } from "react-router-dom";
 // Services
 import userService from "../../services/userService";
 // Utility Pages
-import LoginPage from "../LoginPage/LoginPage";
-import SignupPage from "../SignupPage/SignupPage";
 import ForgotPasswordPage from "../ForgotPasswordPage/ForgotPasswordPage";
+import LoginPage from "../LoginPage/LoginPage";
 import ResetPasswordPage from "../ResetPasswordPage/ResetPasswordPage";
+import SignupPage from "../SignupPage/SignupPage";
+// Pages
+import Home from "../Home/Home";
 import SearchPage from "../SearchPage/SearchPage";
+
 // Components
 import NavBar from "../../components/NavBar/NavBar";
-import Home from "../../components/Home/Home";
 import ResultItemDetail from "../../components/ResultItemDetail/ResultItemDetail";
 import Profile from "../../components/Profile/Profile";
 import Users from "../../components/Users/Users";
@@ -46,7 +48,7 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
 
       {/* ---- Home ---- */}
-      <Route exact path="/" render={() => <Home />}/>
+      <Route exact path="/" render={() => <Home />} />
 
       {/* ---- Users ---- */}
       <Route exact path="/users" render={() => <Users user={user} />}></Route>
