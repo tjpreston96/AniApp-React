@@ -55,6 +55,27 @@ export function mangaCollection(collection) {
   }).then((res) => res.json());
 }
 
+export function animeIndex() {
+  return fetch(`/api/media/anime`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + tokenService.getToken(),
+    },
+  }).then((res) => res.json());
+}
+
+export function animeCollection(collection) {
+  return fetch(`/api/media/anime/collection`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + tokenService.getToken(),
+    },
+    body: JSON.stringify({collection})
+  }).then((res) => res.json());
+}
+
 
 
 // !Probably not needed
