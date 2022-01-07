@@ -97,7 +97,7 @@ function animeSearch(req, res) {
 // Collection Search
 function animeCollection(req, res) {
   axios
-    .get(`https://kitsu.io/api/edge//anime?filter[id]=${req.body.term}`)
+    .get(`https://kitsu.io/api/edge//anime?filter[id]=${req.body.collection}`)
     .then((response) => {
       res.json(response.data.data);
     });
