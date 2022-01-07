@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { animeIdx } from "../../services/mediaService";
+import {
+  index,
+  addToCollection,
+  removeFromCollection,
+} from "../../services/mediaService";
 
 const AnimeDetail = ({ user, result }) => {
-  const [idx, setIdx] = useState([]);
+  console.log(result);
+  const [collection, setCollection] = useState([]);
   useEffect(() => {
-    setIdx(animeIdx());
-    console.log(idx);
+    setCollection(index());
   }, []);
+
+  const add = () => {
+    addToCollection(
+      {
+        type: result.type,
+        id: result.id,
+        slug: result.attributes.slug,
+      },
+      result.type
+    );
+  };
 
   return (
     <>
@@ -46,7 +61,9 @@ const AnimeDetail = ({ user, result }) => {
             <b>Finish:</b>{" "}
             {result.attributes.endDate ? result.attributes.endDate : "N/A"}
           </p>
-          <button className="btn gold">Temp. Label</button>
+          <button className="btn gold" onClick={add}>
+            Temp. Label
+          </button>
         </div>
       </div>
     </>
