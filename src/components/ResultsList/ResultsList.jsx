@@ -5,7 +5,7 @@ import ResultItem from "../ResultItem/ResultItem";
 const ResultsList = ({ results }) => {
   const [indResult, setIndResult] = useState([]);
 
-  const renderedResults = results.map((result) => {
+  const renderedResults = results?.map((result) => {
     return (
       <ResultItem result={result} key={result.id} setIndResult={setIndResult} />
     );
