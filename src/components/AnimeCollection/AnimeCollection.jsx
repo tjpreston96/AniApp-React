@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { animeIdx } from "../../services/mediaService";
+import { animeIndex, animeCollection } from "../../services/mediaService";
+import ResultsList from "../../components/ResultsList/ResultsList";
 
 const AnimeCollection = () => {
-  const [idx, setIdx] = useState([]);
+  const [collection, setCollection] = useState();
+
   useEffect(() => {
-    setIdx(animeIdx());
-    console.log(idx);
+    async function setupCollection() {
+      const index = await animeIndex();
+      const c = await animeCollection(index.join());
+      setCollection(c);
+    }
+    setupCollection();
   }, []);
 
   return (
     <>
       <h1>Anime Collection</h1>
+      <ResultsList results={collection} />
     </>
   );
 };
