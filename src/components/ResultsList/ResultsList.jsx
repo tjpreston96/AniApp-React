@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import "./ResultsList.css";
 import ResultItem from "../ResultItem/ResultItem";
 
-const ResultsList = ({ results, setResults }) => {
+const ResultsList = ({ results }) => {
   const [indResult, setIndResult] = useState([]);
-  const { category } = useParams();
-
-  // useEffect(() => {
-  //   setResults([]);
-  // }, [category, setResults]);
 
   const renderedResults = results.map((result) => {
     return (
