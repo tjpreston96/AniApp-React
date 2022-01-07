@@ -1,7 +1,7 @@
 import tokenService from "./tokenService";
 
 export function search(term, category) {
-  return fetch(`/api/${category}/search`, {
+  return fetch(`/api/media/${category}/search`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
