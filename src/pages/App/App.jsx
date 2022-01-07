@@ -22,11 +22,7 @@ import MangaCollection from "../../components/MangaCollection/MangaCollection";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    setUser(userService.getUser());
-  }, []);
+  const [user, setUser] = useState(userService.getUser());
 
   const handleLogout = () => {
     userService.logout();
