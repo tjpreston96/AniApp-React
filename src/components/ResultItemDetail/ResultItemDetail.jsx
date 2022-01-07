@@ -24,7 +24,7 @@ const ResultItemDetail = ({ user }) => {
     }
   };
 
-  useEffect(() => getDetails(), []);
+  // useEffect(() => getDetails(), []);
 
   // const handleCollectionChange = () => {
   //   if (result.favoritedBy) {
@@ -34,20 +34,10 @@ const ResultItemDetail = ({ user }) => {
   //       ? removeFromCollection(result, result.type)
   //       : addToCollection(
   //           {
-  //             title: result.title,
   //             type: result.type,
+  //             id: result.id
   //             slug: result.slug,
-  //             status: result.status,
-  //             averageRating: result.averageRating,
-  //             startDate: result.startDate,
-  //             endDate: result.endDate,
-  //             description: result.description,
-  //             imageUrl: result.imageUrl,
-  //             videoUrl: result.videoUrl ? result.videoUrl : "",
-  //           },
-  //           result.type
-  //         );
-  //   }
+  //           })
   // };
 
   return (
