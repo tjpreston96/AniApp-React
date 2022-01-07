@@ -1,6 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  index,
+  addToCollection,
+  removeFromCollection,
+} from "../../services/mediaService";
 
 const MangaDetail = ({ user, result }) => {
+  console.log(result);
+  const [collection, setCollection] = useState([]);
+  useEffect(() => {
+    setCollection(index());
+  }, []);
+  // const collectionChange = (user) => {
+  //   let collection = []
+  //   if(result.id)
+  // };
+
+  const add = () => {
+    addToCollection(
+      {
+        type: result.type,
+        id: result.id,
+        slug: result.attributes.slug,
+      },
+      result.type
+    );
+  };
+
   return (
     <>
       <img
@@ -37,7 +63,10 @@ const MangaDetail = ({ user, result }) => {
             <b>Finish:</b>{" "}
             {result.attributes.endDate ? result.attributes.endDate : "N/A"}
           </p>
-          <button className="btn gold">Temp. Label</button>
+
+          <button className="btn gold" onClick={add}>
+            Temp. Label
+          </button>
         </div>
       </div>
     </>
