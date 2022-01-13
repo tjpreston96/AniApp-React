@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from "react";
 import {
-  index,
+  mangaIndex,
   addToCollection,
   removeFromCollection,
 } from "../../services/mediaService";
 
 const MangaDetail = ({ user, result }) => {
-  console.log(result);
+  // console.log(result);
   const [collection, setCollection] = useState([]);
+  const [refreshKey, setRefreshKey] = useState(0);
   useEffect(() => {
-    setCollection(index());
-  }, []);
-  // const collectionChange = (user) => {
-  //   let collection = []
-  //   if(result.id)
-  // };
+    async function getCollection() {
+      setCollection(await mangaIndex());
+    }
+    getCollection();
+  }, [refreshKey]);
 
-  const add = () => {
-    addToCollection(
-      {
-        type: result.type,
-        id: result.id,
-        slug: result.attributes.slug,
-      },
-      result.type
-    );
-  };
+  async function handleCollectionChange() {
+    // const list = await mangaIndex();
+    // setCollection(list)
+    // console.log(result.id);
+    // console.log(list);
+
+    collection.includes(result.id)
+      ? removeFromCollection(result)
+      : addToCollection({
+          type: result.type,
+          id: result.id,
+          slug: result.attributes.slug,
+        });
+    setRefreshKey(refreshKey + 1);
+  }
 
   return (
     <>
@@ -64,7 +69,7 @@ const MangaDetail = ({ user, result }) => {
             {result.attributes.endDate ? result.attributes.endDate : "N/A"}
           </p>
 
-          <button className="btn gold" onClick={add}>
+          <button className="btn gold" onClick={handleCollectionChange}>
             Temp. Label
           </button>
         </div>

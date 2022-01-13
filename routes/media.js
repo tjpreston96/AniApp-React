@@ -18,7 +18,7 @@ router.post("/anime/collection", isLoggedIn, mediaCtrl.animeCollection);
 router.post("/manga/collection", isLoggedIn, mediaCtrl.mangaCollection);
 
 function isLoggedIn(req, res, next) {
-  console.log(req.user);
+  // console.log(req.user);
   if (req.user) return next();
   return res.status(401).json({ msg: "Not Authorized" });
 }

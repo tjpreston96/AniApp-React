@@ -4,6 +4,7 @@ import {
   addToCollection,
   removeFromCollection,
   showDetail,
+  index,
 } from "../../services/mediaService";
 import { useLocation, useParams, useHistory } from "react-router-dom";
 import AnimeDetail from "../AnimeDetail/AnimeDetail";
@@ -13,31 +14,43 @@ const ResultItemDetail = ({ user }) => {
   const history = useHistory();
   const location = useLocation();
   const [result, setResult] = useState(location.state.result);
+  const [collection, setCollection] = useState([]);
   const { slug, category } = useParams();
 
-  const getDetails = async () => {
-    const detail = await showDetail(slug, category);
-    // Checking to see if in database
-    if (detail) {
-      // setResult(detail);
-      console.log(detail);
-    }
-  };
+  // useEffect(() => {
+  //   async function getFullCollection() {
+  //     const collection = await index();
+  //     setCollection(collection);
+  //   }
+  //   getFullCollection();
+  // }, []);
 
-  // useEffect(() => getDetails(), []);
+  // const handleCollectionChange = () => {
+  //   console.log(collection);
+  //   console.log(result.id);
+  //   console.log(collection.includes(result.id));
+
+  //   collection.includes(result.id)
+  //     ? removeFromCollection(result.id)
+  //     : addToCollection({
+  //         type: result.type,
+  //         id: result.id,
+  //         slug: result.attributes.slug,
+  //       });
+  // };
 
   // const handleCollectionChange = () => {
   //   if (result.favoritedBy) {
   //     result.favoritedBy.some((u) => {
   //       return u._id === user._id;
   //     })
-  //       ? removeFromCollection(result, result.type)
-  //       : addToCollection(
-  //           {
-  //             type: result.type,
-  //             id: result.id
-  //             slug: result.slug,
-  //           })
+  //       ? removeFromCollection(result)
+  //       : addToCollection({
+  //           type: result.type,
+  //           id: result.id,
+  //           slug: result.attributes.slug,
+  //         });
+  //   }
   // };
 
   return (
@@ -46,9 +59,15 @@ const ResultItemDetail = ({ user }) => {
         {result.type.charAt(0).toUpperCase() + result.type.slice(1)} Details
       </h2>
       {result.type === "anime" ? (
-        <AnimeDetail result={result} />
+        <AnimeDetail
+          result={result}
+          // handleCollectionChange={handleCollectionChange}
+        />
       ) : (
-        <MangaDetail result={result} />
+        <MangaDetail
+          result={result}
+          // handleCollectionChange={handleCollectionChange}
+        />
       )}
     </div>
   );

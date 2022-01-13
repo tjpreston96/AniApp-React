@@ -15,8 +15,6 @@ const MangaCollection = () => {
     setupCollection();
   }, []);
 
-  
-
   return (
     <>
       <h1>Manga Collection</h1>

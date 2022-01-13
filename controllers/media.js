@@ -11,7 +11,7 @@ module.exports = {
   animeSearch,
   mangaSearch,
   animeCollection,
-  mangaCollection
+  mangaCollection,
 };
 
 // Index
@@ -50,7 +50,7 @@ function mangaIndex(req, res) {
 
 // Create
 function addToCollection(req, res) {
-  console.log(req.user._id);
+  // console.log(req.user._id);
   Media.findOne({ id: req.body.id }).then((media) => {
     if (media) {
       media.favoritedBy.push(req.user._id);
@@ -68,13 +68,17 @@ function addToCollection(req, res) {
 
 // Delete
 function removeFromCollection(req, res) {
-  Media.findOne({ id: req.params.id }).then((media) => {
-    let idx = media.favoritedBy.indexOf(req.user._id);
-    media.favoritedBy.splice(idx, 1);
-    media.save().then((media) => {
-      res.json(media);
+  Media.findOne({ id: req.params.id })
+    .then((media) => {
+      let idx = media.favoritedBy.indexOf(req.user._id);
+      media.favoritedBy.splice(idx, 1);
+      media.save().then((media) => {
+        res.json(media);
+      });
+    })
+    .catch((err) => {
+      console.error(err);
     });
-  });
 }
 
 // Search Functionality

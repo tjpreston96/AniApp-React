@@ -9,7 +9,6 @@ module.exports = {
   removeFromCollection,
 };
 
-
 function search(req, res) {
   axios
     .get(`https://kitsu.io/api/edge//anime?filter[text]=${req.body.term}`)
@@ -17,7 +16,6 @@ function search(req, res) {
       res.json(response.data.data);
     });
 }
-
 
 function index(req, res) {
   Anime.find({ favoritedBy: req.user._id }).then((anime) => {
